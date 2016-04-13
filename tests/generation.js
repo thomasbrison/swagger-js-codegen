@@ -32,7 +32,6 @@ list.forEach(function(file){
             beautify: false
         });
         assert(typeof(result), 'string');
-        assert(typeof(result), 'string');
         if(swagger.swagger === '2.0') {
             result = CodeGen.getTypescriptCode({
                 moduleName: 'Test',
@@ -49,6 +48,7 @@ list.forEach(function(file){
             template: {
                 class: fs.readFileSync(__dirname + '/../templates/angular-class.mustache', 'utf-8'),
                 method: fs.readFileSync(__dirname + '/../templates/method.mustache', 'utf-8'),
+                object: fs.readFileSync(__dirname + '/../templates/object.mustache', 'utf-8'),
                 request:fs.readFileSync(__dirname + '/../templates/angular-request.mustache', 'utf-8')
             }
         });

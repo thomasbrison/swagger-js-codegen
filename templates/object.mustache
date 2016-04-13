@@ -1,0 +1,23 @@
+/**
+ * {{&summary}}
+ * @object
+ * @name {{&className}}#{{&objectName}}
+ * 
+ */
+{{#isExtending}}
+class {{&objectName}} extends {{&extends}} {
+{{/isExtending}}
+{{^isExtending}}
+class {{&objectName}} {
+{{/isExtending}}
+    constructor({{&propertiesAsParameters}}) {
+        {{#isExtending}}
+            super({{&parentPropertiesAsParameters}});
+        {{/isExtending}}
+        {{#properties}}
+            this.{{.}} = {{.}};
+        {{/properties}}
+    }
+}
+
+{{&className}}.prototype.{{&objectName}} = {{&objectName}};

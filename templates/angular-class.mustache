@@ -78,6 +78,10 @@ angular.module('{{&moduleName}}', [])
             {{> method}}
         {{/methods}}
 
+        {{#objects}}
+            {{> object}}
+        {{/objects}}
+
 	return {{&className}};
     })();
 
