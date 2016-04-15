@@ -15,7 +15,15 @@ class {{&objectName}} {
             super({{&parentPropertiesAsParameters}});
         {{/isExtending}}
         {{#properties}}
-            this.{{.}} = {{.}};
+            {{#isDate}}
+                this.{{name}} = {{name}} ? new Date({{name}}) : null;
+            {{/isDate}}
+            {{#isArray}}
+                this.{{name}} = {{name}} ? {{name}} : [];
+            {{/isArray}}
+            {{#isPrimitive}}
+                this.{{name}} = {{name}};
+            {{/isPrimitive}}
         {{/properties}}
     }
 }
